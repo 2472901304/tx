@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {getTruth} from '../services/index'
+import styles from './Truth.module.scss'
 
 interface ProType {
     provinceName: string
@@ -22,9 +23,15 @@ const Truth = ()=>{
         })
     }, []);
     
-    return <>
-        <h3>辟谣信息</h3>
-    </>
+    return <div className={styles.title}>
+            <div className={styles.sectionTitle}>辟谣信息
+                <div className={styles.hotzhuizhong}>
+                    <div>
+                        <span className={styles.timelineMore}>查看更多内容</span>
+                    </div>
+                </div>    
+            </div>
+    </div>
 }
 
 

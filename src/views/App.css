@@ -11,6 +11,6 @@ html,body,#root,.App{
 .App{
   max-width: 705px;
   margin: 0 auto;
-  background: #fff;
+  background: gray;
   width: 100%;
 }

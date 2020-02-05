@@ -1,12 +1,32 @@
 import React, {useState, useEffect} from 'react'
-import {TotalType} from '../utils/types'
+import {getHospitalProvince} from '../services/index'
 
-const Hospital = (props: {total: TotalType})=>{
-    console.log('total...', props.total)
-    return <>
+interface ProType {
+    provinceName: string
+    citys: any[],
+    cityCnt: number
+}
+
+const Header = ()=>{
+    // 定义全国医院数据
+    let [provinces, setProvinces] = useState<ProType[]>([]);
+
+    // 获取全国医院数据
+    useEffect(()=>{
+        getHospitalProvince().then((res:any)=>{
+            
+        res = res.data;
+        
+        if(res.code == 0){
+            setProvinces(res.args.rsp.provinces);
+        }
+        })
+    }, []);
     
+    return <>
+        
     </>
 }
 
 
-export default Hospital
+export default Header

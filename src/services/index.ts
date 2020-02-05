@@ -38,21 +38,3 @@ export const getTrace = ()=>{
         })
     })
 }
-
-// 最新疫情数据
-export const getDisease = ()=>{
-    return new Promise((resolve, reject)=>{
-        jsonp(`/inews/g2/getOnsInfo?name=disease_h5`, {}, (err, data)=>{
-            if (err){
-                reject(err)
-            }else{
-                resolve(data)
-            }
-        })
-    })
-}
-
-// 省份疫情防治列表
-export const getProvinceNews = (code: string)=>{
-    return axios.post('/api/news/v1/province/news/list?province_code='+code);
-}
